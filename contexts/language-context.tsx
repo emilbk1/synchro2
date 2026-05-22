@@ -87,6 +87,28 @@ const translations = {
     "benefits.results.description":
       "Enfoque en métricas concretas: más tráfico, mejor conversión y crecimiento de tu negocio online.",
 
+    // Projects
+    "projects.title": "Nuestros Proyectos",
+    "projects.subtitle": "Explora algunos de los proyectos que hemos desarrollado para nuestros clientes",
+    "projects.project1.title": "E-Commerce Premium",
+    "projects.project1.description": "Tienda online completa con pasarela de pagos, inventario y panel de administración.",
+    "projects.project1.category": "E-Commerce",
+    "projects.project2.title": "Portal Inmobiliario",
+    "projects.project2.description": "Plataforma de bienes raíces con búsqueda avanzada y tours virtuales.",
+    "projects.project2.category": "Inmobiliaria",
+    "projects.project3.title": "App de Gestión",
+    "projects.project3.description": "Sistema de gestión empresarial con dashboard interactivo y reportes.",
+    "projects.project3.category": "SaaS",
+    "projects.project4.title": "Landing Corporativa",
+    "projects.project4.description": "Sitio web institucional con diseño moderno y optimización SEO.",
+    "projects.project4.category": "Corporativo",
+    "projects.project5.title": "Plataforma Educativa",
+    "projects.project5.description": "Sistema de cursos online con videoconferencia y certificaciones.",
+    "projects.project5.category": "Educación",
+    "projects.project6.title": "App de Reservas",
+    "projects.project6.description": "Sistema de reservaciones para restaurante con gestión de mesas.",
+    "projects.project6.category": "Restaurantes",
+
     // Pricing
     "pricing.title": "Planes y Paquetes",
     "pricing.subtitle": "Elige el plan que mejor se adapte a las necesidades de tu proyecto",
@@ -214,6 +236,28 @@ const translations = {
     "benefits.results.title": "Measurable Results",
     "benefits.results.description":
       "Focus on concrete metrics: more traffic, better conversion, and growth of your online business.",
+
+    // Projects
+    "projects.title": "Our Projects",
+    "projects.subtitle": "Explore some of the projects we have developed for our clients",
+    "projects.project1.title": "Premium E-Commerce",
+    "projects.project1.description": "Complete online store with payment gateway, inventory and admin panel.",
+    "projects.project1.category": "E-Commerce",
+    "projects.project2.title": "Real Estate Portal",
+    "projects.project2.description": "Real estate platform with advanced search and virtual tours.",
+    "projects.project2.category": "Real Estate",
+    "projects.project3.title": "Management App",
+    "projects.project3.description": "Business management system with interactive dashboard and reports.",
+    "projects.project3.category": "SaaS",
+    "projects.project4.title": "Corporate Landing",
+    "projects.project4.description": "Institutional website with modern design and SEO optimization.",
+    "projects.project4.category": "Corporate",
+    "projects.project5.title": "Educational Platform",
+    "projects.project5.description": "Online course system with video conferencing and certifications.",
+    "projects.project5.category": "Education",
+    "projects.project6.title": "Booking App",
+    "projects.project6.description": "Restaurant reservation system with table management.",
+    "projects.project6.category": "Restaurants",
 
     // Pricing
     "pricing.title": "Plans & Packages",
