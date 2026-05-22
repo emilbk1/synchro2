@@ -29,7 +29,13 @@ export function Header() {
               onClick={() => scrollToSection("hero")}
               className="flex items-center gap-3 hover:opacity-80 transition-opacity"
             >
-              <Image src="/synchro-logo.png" alt="Synchro Systems" width={40} height={40} className="w-10 h-10" />
+              <Image 
+                src="/logo.png" 
+                alt="Synchro Systems" 
+                width={40} 
+                height={40} 
+                className="w-10 h-10 transition-transform duration-500 hover:rotate-180" 
+              />
               <span className="text-xl font-semibold text-foreground hidden sm:inline">Synchro Systems</span>
             </button>
           </div>
