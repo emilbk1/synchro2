@@ -105,7 +105,7 @@ export function Hero() {
                     <div className="text-center p-8">
                       <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-accent/20 flex items-center justify-center">
                         <Image
-                          src="/synchro-logo.png"
+                          src="/logo.png"
                           alt="Synchro"
                           width={40}
                           height={40}

@@ -85,7 +85,7 @@ export function Portfolio() {
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-secondary/10" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <Image
-                    src="/synchro-logo.png"
+                    src="/logo.png"
                     alt={project.title}
                     width={60}
                     height={60}

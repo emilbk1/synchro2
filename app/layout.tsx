@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/contexts/theme-context"
 import { LanguageProvider } from "@/contexts/language-context"
+import { ParticlesBackground } from "@/components/particles-background"
 import "./globals.css"
 
 const _geist = Geist({ subsets: ["latin"] })
@@ -43,6 +44,7 @@ export default function RootLayout({
       <body className="font-sans antialiased bg-background">
         <ThemeProvider>
           <LanguageProvider>
+            <ParticlesBackground />
             {children}
             <Analytics />
           </LanguageProvider>

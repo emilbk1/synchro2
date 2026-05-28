@@ -11,7 +11,7 @@ export function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <Image src="/synchro-logo.png" alt="Synchro Systems" width={24} height={24} className="w-6 h-6" />
+            <Image src="/logo.png" alt="Synchro Systems" width={24} height={24} className="w-6 h-6" />
             <span className="text-sm font-bold text-foreground">SYNCHRO.</span>
           </div>
 

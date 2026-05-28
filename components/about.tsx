@@ -50,7 +50,7 @@ export function About() {
             <div className="relative bg-card border border-border rounded-2xl p-12 aspect-square flex items-center justify-center">
               <div className="text-center">
                 <Image
-                  src="/synchro-logo.png"
+                  src="/logo.png"
                   alt="Synchro Systems"
                   width={200}
                   height={200}
