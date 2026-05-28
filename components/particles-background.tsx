@@ -1,19 +1,20 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import Particles, { initParticlesEngine } from "@tsparticles/react";
+import Particles from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
-import type { ISourceOptions } from "@tsparticles/engine";
+import type { ISourceOptions, Engine } from "@tsparticles/engine";
 
 export function ParticlesBackground() {
   const [init, setInit] = useState(false);
 
   useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-    }).then(() => {
+    const initParticles = async () => {
+      const { tsParticles } = await import("@tsparticles/engine");
+      await loadSlim(tsParticles as unknown as Engine);
       setInit(true);
-    });
+    };
+    initParticles();
   }, []);
 
   const options: ISourceOptions = useMemo(
@@ -93,7 +94,7 @@ export function ParticlesBackground() {
     <Particles
       id="tsparticles"
       options={options}
-      className="fixed inset-0 -z-10 pointer-events-none"
+      className="fixed inset-0 -z-10"
     />
   );
 }
