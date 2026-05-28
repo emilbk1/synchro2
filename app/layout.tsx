@@ -10,9 +10,9 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Synchro Systems - Diseño y Desarrollo Web Profesional",
+  title: "Synchro Systems - Desarrollo Web Profesional",
   description:
-    "Creamos sitios web modernos, rápidos y responsivos. Servicios de diseño, desarrollo, mantenimiento y optimización web para tu negocio.",
+    "Creamos sitios web modernos, rapidos y responsivos. Servicios de diseno, desarrollo, mantenimiento y optimizacion web para tu negocio.",
   generator: "v0.app",
   icons: {
     icon: [
@@ -39,8 +39,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" suppressHydrationWarning>
-      <body className={`font-sans antialiased`}>
+    <html lang="es" suppressHydrationWarning className="dark bg-background">
+      <body className="font-sans antialiased bg-background">
         <ThemeProvider>
           <LanguageProvider>
             {children}

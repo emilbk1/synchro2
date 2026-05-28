@@ -1,8 +1,9 @@
 "use client"
 
-import { Globe, Palette, RefreshCw, Gauge, Headphones, Code2 } from "lucide-react"
+import { Globe, RefreshCw, Gauge, Rocket, ArrowRight, MessageSquare } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 import { useEffect, useRef } from "react"
+import { Button } from "@/components/ui/button"
 
 export function Services() {
   const { t } = useLanguage()
@@ -13,10 +14,10 @@ export function Services() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const cards = entry.target.querySelectorAll(".service-card")
-            cards.forEach((card, index) => {
+            const animated = entry.target.querySelectorAll(".service-animate")
+            animated.forEach((element, index) => {
               setTimeout(() => {
-                card.classList.add("animate-on-scroll")
+                element.classList.add("animate-on-scroll")
               }, index * 100)
             })
           }
@@ -35,59 +36,97 @@ export function Services() {
   const services = [
     {
       icon: Globe,
-      titleKey: "services.creation.title",
-      descriptionKey: "services.creation.description",
-    },
-    {
-      icon: Palette,
-      titleKey: "services.redesign.title",
-      descriptionKey: "services.redesign.description",
-    },
-    {
-      icon: RefreshCw,
-      titleKey: "services.maintenance.title",
-      descriptionKey: "services.maintenance.description",
+      title: "Desarrollo de sitios web a medida",
+      active: true,
     },
     {
       icon: Gauge,
-      titleKey: "services.seo.title",
-      descriptionKey: "services.seo.description",
+      title: "Rendimiento",
+      active: false,
     },
     {
-      icon: Code2,
-      titleKey: "services.custom.title",
-      descriptionKey: "services.custom.description",
+      icon: RefreshCw,
+      title: "Mantenimiento y actualizaciones",
+      active: false,
     },
     {
-      icon: Headphones,
-      titleKey: "services.support.title",
-      descriptionKey: "services.support.description",
+      icon: Rocket,
+      title: "Landing pages para captacion de clientes",
+      active: false,
     },
   ]
 
-  return (
-    <section ref={sectionRef} id="servicios" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 animate-on-scroll">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-balance">{t("services.title")}</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty leading-relaxed">
-            {t("services.subtitle")}
-          </p>
-        </div>
+  const scrollToContact = () => {
+    const el = document.getElementById("contacto")
+    el?.scrollIntoView({ behavior: "smooth" })
+  }
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="service-card p-6 rounded-lg border border-border bg-card hover:shadow-xl hover:scale-105 hover:border-primary/50 transition-all duration-300 opacity-0"
-            >
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                <service.icon className="text-primary" size={24} />
-              </div>
-              <h3 className="text-xl font-semibold text-card-foreground mb-3">{t(service.titleKey)}</h3>
-              <p className="text-muted-foreground leading-relaxed">{t(service.descriptionKey)}</p>
+  return (
+    <section ref={sectionRef} id="servicios" className="py-24 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
+          {/* Left side - Services list */}
+          <div>
+            <p className="service-animate opacity-0 text-accent text-sm font-medium uppercase tracking-wider mb-3">
+              SERVICIOS
+            </p>
+            <h2 className="service-animate opacity-0 text-3xl sm:text-4xl font-bold text-foreground mb-8">
+              Como puedo ayudarte?
+            </h2>
+
+            <div className="space-y-4">
+              {services.map((service, index) => (
+                <div
+                  key={index}
+                  className={`service-animate opacity-0 flex items-center gap-4 p-4 rounded-xl transition-all cursor-pointer ${
+                    service.active
+                      ? "bg-accent/10 border border-accent/30"
+                      : "hover:bg-muted/50 border border-transparent"
+                  }`}
+                >
+                  <div
+                    className={`w-10 h-10 rounded-lg flex items-center justify-center ${
+                      service.active ? "bg-accent text-accent-foreground" : "bg-muted text-muted-foreground"
+                    }`}
+                  >
+                    <service.icon size={20} />
+                  </div>
+                  <span className={`font-medium ${service.active ? "text-accent" : "text-foreground"}`}>
+                    {service.title}
+                  </span>
+                </div>
+              ))}
             </div>
-          ))}
+
+            <Button
+              onClick={scrollToContact}
+              variant="outline"
+              className="service-animate opacity-0 mt-8 border-border hover:bg-accent hover:text-accent-foreground hover:border-accent"
+            >
+              VER SOLUCIONES
+              <ArrowRight size={16} className="ml-2" />
+            </Button>
+          </div>
+
+          {/* Right side - CTA Card */}
+          <div className="service-animate opacity-0 lg:sticky lg:top-24">
+            <div className="bg-card border border-border rounded-2xl p-8 text-center">
+              <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-accent/20 flex items-center justify-center">
+                <MessageSquare className="text-accent" size={28} />
+              </div>
+
+              <h3 className="text-2xl font-bold text-foreground mb-4">Tenes un proyecto en mente?</h3>
+              <p className="text-muted-foreground mb-8">Hablemos y llevemos tu idea al siguiente nivel.</p>
+
+              <Button
+                onClick={scrollToContact}
+                className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-medium"
+              >
+                ESCRIBIME
+                <ArrowRight size={16} className="ml-2" />
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     </section>

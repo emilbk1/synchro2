@@ -15,9 +15,9 @@
   --primary: oklch(0.28 0.05 240);
   --primary-foreground: oklch(0.99 0 0);
 
-  /* Naranja vibrante del logo como accent */
-  --accent: oklch(0.65 0.18 45);
-  --accent-foreground: oklch(0.99 0 0);
+  /* Lime/green vibrante como accent - similar a xito */
+  --accent: oklch(0.85 0.2 120);
+  --accent-foreground: oklch(0.12 0.01 240);
 
   /* Teal/cyan del logo como secondary */
   --secondary: oklch(0.58 0.12 210);
@@ -31,10 +31,10 @@
 
   --border: oklch(0.92 0 0);
   --input: oklch(0.92 0 0);
-  --ring: oklch(0.58 0.12 210);
+  --ring: oklch(0.85 0.2 120);
 
   --chart-1: oklch(0.28 0.05 240);
-  --chart-2: oklch(0.65 0.18 45);
+  --chart-2: oklch(0.85 0.2 120);
   --chart-3: oklch(0.58 0.12 210);
   --chart-4: oklch(0.48 0.08 220);
   --chart-5: oklch(0.7 0.06 200);
@@ -48,50 +48,51 @@
   --sidebar-accent: oklch(0.96 0 0);
   --sidebar-accent-foreground: oklch(0.18 0.01 240);
   --sidebar-border: oklch(0.92 0 0);
-  --sidebar-ring: oklch(0.58 0.12 210);
+  --sidebar-ring: oklch(0.85 0.2 120);
 }
 
 .dark {
-  --background: oklch(0.12 0.01 240);
+  --background: oklch(0.08 0.005 240);
   --foreground: oklch(0.97 0 0);
-  --card: oklch(0.16 0.01 240);
+  --card: oklch(0.12 0.008 240);
   --card-foreground: oklch(0.97 0 0);
-  --popover: oklch(0.16 0.01 240);
+  --popover: oklch(0.12 0.008 240);
   --popover-foreground: oklch(0.97 0 0);
 
-  --primary: oklch(0.45 0.08 240);
-  --primary-foreground: oklch(0.99 0 0);
+  --primary: oklch(0.97 0 0);
+  --primary-foreground: oklch(0.08 0.005 240);
 
-  --accent: oklch(0.68 0.18 45);
-  --accent-foreground: oklch(0.12 0.01 240);
+  /* Lime/green accent */
+  --accent: oklch(0.85 0.2 120);
+  --accent-foreground: oklch(0.08 0.005 240);
 
   --secondary: oklch(0.55 0.12 210);
   --secondary-foreground: oklch(0.99 0 0);
 
-  --muted: oklch(0.22 0.01 240);
-  --muted-foreground: oklch(0.65 0 0);
+  --muted: oklch(0.18 0.008 240);
+  --muted-foreground: oklch(0.55 0 0);
 
   --destructive: oklch(0.55 0.22 27);
   --destructive-foreground: oklch(0.97 0 0);
 
-  --border: oklch(0.25 0.01 240);
-  --input: oklch(0.25 0.01 240);
-  --ring: oklch(0.55 0.12 210);
+  --border: oklch(0.22 0.008 240);
+  --input: oklch(0.18 0.008 240);
+  --ring: oklch(0.85 0.2 120);
 
-  --chart-1: oklch(0.45 0.08 240);
+  --chart-1: oklch(0.85 0.2 120);
   --chart-2: oklch(0.68 0.18 45);
   --chart-3: oklch(0.55 0.12 210);
   --chart-4: oklch(0.6 0.1 220);
   --chart-5: oklch(0.7 0.08 200);
 
-  --sidebar: oklch(0.16 0.01 240);
+  --sidebar: oklch(0.12 0.008 240);
   --sidebar-foreground: oklch(0.97 0 0);
-  --sidebar-primary: oklch(0.45 0.08 240);
-  --sidebar-primary-foreground: oklch(0.99 0 0);
-  --sidebar-accent: oklch(0.22 0.01 240);
+  --sidebar-primary: oklch(0.85 0.2 120);
+  --sidebar-primary-foreground: oklch(0.08 0.005 240);
+  --sidebar-accent: oklch(0.18 0.008 240);
   --sidebar-accent-foreground: oklch(0.97 0 0);
-  --sidebar-border: oklch(0.25 0.01 240);
-  --sidebar-ring: oklch(0.55 0.12 210);
+  --sidebar-border: oklch(0.22 0.008 240);
+  --sidebar-ring: oklch(0.85 0.2 120);
 }
 
 @theme inline {
@@ -144,44 +145,8 @@
   }
 }
 
-/* Adding animated background and custom animations */
+/* Custom animations and utilities */
 @layer utilities {
-  .animated-bg {
-    position: relative;
-    background: linear-gradient(135deg, var(--background) 0%, var(--muted) 50%, var(--background) 100%);
-    background-size: 400% 400%;
-    animation: gradient-shift 20s ease infinite;
-  }
-
-  .dark .animated-bg {
-    background: linear-gradient(
-      135deg,
-      oklch(0.12 0.01 240) 0%,
-      oklch(0.16 0.02 240) 30%,
-      oklch(0.14 0.015 230) 70%,
-      oklch(0.12 0.01 240) 100%
-    );
-    background-size: 400% 400%;
-  }
-
-  @keyframes gradient-shift {
-    0% {
-      background-position: 0% 50%;
-    }
-    25% {
-      background-position: 50% 75%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    75% {
-      background-position: 50% 25%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-
   @keyframes fade-in-up {
     from {
       opacity: 0;
@@ -204,6 +169,16 @@
     }
   }
 
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
   .animate-on-scroll {
     opacity: 0;
     animation: fade-in-up 0.6s ease-out forwards;
@@ -214,54 +189,30 @@
     animation: scale-in 0.5s ease-out forwards;
   }
 
-  /* Adding floating orbs animation */
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0px) translateX(0px);
-    }
-    33% {
-      transform: translateY(-20px) translateX(10px);
-    }
-    66% {
-      transform: translateY(-10px) translateX(-10px);
-    }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
   }
 
-  .floating-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(60px);
-    opacity: 0.15;
-    animation: float 20s ease-in-out infinite;
+  /* Glow effect for accent elements */
+  .glow-accent {
+    box-shadow: 0 0 20px oklch(0.85 0.2 120 / 0.3);
   }
 
-  .floating-orb-1 {
-    width: 400px;
-    height: 400px;
-    background: var(--accent);
-    top: 10%;
-    left: 5%;
-    animation-delay: 0s;
+  /* Gradient text */
+  .text-gradient {
+    background: linear-gradient(135deg, oklch(0.85 0.2 120), oklch(0.75 0.18 130));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  .floating-orb-2 {
-    width: 350px;
-    height: 350px;
-    background: var(--secondary);
-    top: 50%;
-    right: 10%;
-    animation-delay: 5s;
-    animation-duration: 25s;
+  /* Card hover effect */
+  .card-hover {
+    transition: all 0.3s ease;
   }
 
-  .floating-orb-3 {
-    width: 300px;
-    height: 300px;
-    background: var(--primary);
-    bottom: 20%;
-    left: 15%;
-    animation-delay: 10s;
-    animation-duration: 30s;
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   }
 }

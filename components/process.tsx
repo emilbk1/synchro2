@@ -1,6 +1,6 @@
 "use client"
 
-import { Search, Pen, Code, Rocket } from "lucide-react"
+import { Search, Pen, Code, Rocket, Check, FileText, Settings } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 import { useEffect, useRef } from "react"
 
@@ -36,53 +36,71 @@ export function Process() {
     {
       number: "01",
       icon: Search,
-      titleKey: "process.step1.title",
-      descriptionKey: "process.step1.description",
+      title: "Analisis visual",
+      description: "Estudiamos tu negocio, competencia y objetivos para crear una estrategia web efectiva.",
     },
     {
       number: "02",
       icon: Pen,
-      titleKey: "process.step2.title",
-      descriptionKey: "process.step2.description",
+      title: "Diseno visual",
+      description: "Disenamos interfaces atractivas y funcionales enfocadas en la experiencia del usuario.",
     },
     {
       number: "03",
-      icon: Code,
-      titleKey: "process.step3.title",
-      descriptionKey: "process.step3.description",
+      icon: Check,
+      title: "Aceptacion y puesta en comun",
+      description: "Revisamos juntos el diseno y ajustamos detalles antes de comenzar el desarrollo.",
     },
     {
       number: "04",
+      icon: Code,
+      title: "Desarrollo",
+      description: "Programamos tu sitio con codigo limpio, optimizado y siguiendo las mejores practicas.",
+    },
+    {
+      number: "05",
+      icon: Settings,
+      title: "Ajustes y contenido",
+      description: "Integramos tu contenido real y realizamos los ajustes finales para el lanzamiento.",
+    },
+    {
+      number: "06",
       icon: Rocket,
-      titleKey: "process.step4.title",
-      descriptionKey: "process.step4.description",
+      title: "Publicacion",
+      description: "Publicamos tu sitio y te acompanamos con soporte continuo para asegurar el exito.",
     },
   ]
 
   return (
-    <section ref={sectionRef} id="proceso" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section ref={sectionRef} id="proceso" className="py-24 px-4 sm:px-6 lg:px-8 bg-card">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 animate-on-scroll">
+        <div className="text-center mb-16">
+          <p className="text-accent text-sm font-medium uppercase tracking-wider mb-3">PROCESO</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-balance">{t("process.title")}</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty leading-relaxed">
             {t("process.subtitle")}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {steps.map((step, index) => (
-            <div key={index} className="relative process-step opacity-0">
-              <div className="text-center hover:scale-105 transition-transform duration-300">
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 mx-auto">
-                  <step.icon className="text-primary" size={28} />
-                </div>
-                <div className="text-4xl font-bold text-primary/20 mb-2">{step.number}</div>
-                <h3 className="text-xl font-semibold text-foreground mb-3">{t(step.titleKey)}</h3>
-                <p className="text-muted-foreground leading-relaxed">{t(step.descriptionKey)}</p>
+            <div
+              key={index}
+              className="process-step opacity-0 relative p-6 rounded-xl border border-border bg-background hover:border-accent/50 transition-all duration-300 group"
+            >
+              {/* Step number badge */}
+              <div className="absolute -top-3 left-6 px-3 py-1 bg-accent text-accent-foreground text-xs font-bold rounded-full">
+                {step.number}
               </div>
-              {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-8 left-[60%] w-[80%] h-0.5 bg-border" />
-              )}
+
+              <div className="pt-4">
+                <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
+                  <step.icon className="text-accent" size={24} />
+                </div>
+
+                <h3 className="text-lg font-semibold text-foreground mb-2">{step.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+              </div>
             </div>
           ))}
         </div>
