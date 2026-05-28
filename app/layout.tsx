@@ -41,11 +41,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" suppressHydrationWarning className="dark bg-background">
-      <body className="font-sans antialiased bg-background">
+      <body className="font-sans antialiased bg-background relative">
         <ThemeProvider>
           <LanguageProvider>
             <ParticlesBackground />
-            {children}
+            <main className="relative z-20">
+              {children}
+            </main>
             <Analytics />
           </LanguageProvider>
         </ThemeProvider>
